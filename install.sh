@@ -37,14 +37,11 @@ mkdir -p ~/.config/alacritty
 backup_and_link "$DOTFILES_DIR/alacritty/alacritty.toml" ~/.config/alacritty/alacritty.toml
 backup_and_link "$DOTFILES_DIR/alacritty/dank-theme.toml" ~/.config/alacritty/dank-theme.toml
 
-# Bash & Starship
+# Fish
 echo ""
-echo "🐚 Installing Bash and Starship config..."
-mkdir -p ~/.local/share/mybash
-backup_and_link "$DOTFILES_DIR/bash/.bashrc" ~/.local/share/mybash/.bashrc
-backup_and_link "$DOTFILES_DIR/bash/starship.toml" ~/.local/share/mybash/starship.toml
-backup_and_link ~/.local/share/mybash/.bashrc ~/.bashrc
-backup_and_link ~/.local/share/mybash/starship.toml ~/.config/starship.toml
+echo "🐚 Installing Fish config..."
+mkdir -p ~/.config/fish
+backup_and_link "$DOTFILES_DIR/fish/config.fish" ~/.config/fish/config.fish
 
 # Niri (optional - only if directory exists)
 if [ -d "$DOTFILES_DIR/niri" ]; then
@@ -83,5 +80,5 @@ echo "✅ Dotfiles installation complete!"
 echo ""
 echo "📝 Notes:"
 echo "   - Existing files were backed up with .bak extension"
-echo "   - Restart your terminal or run 'source ~/.bashrc' to apply changes"
+echo "   - Restart your terminal or run 'exec fish' to apply changes"
 echo "   - Make sure you have the required dependencies installed (see README.md)"

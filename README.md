@@ -1,35 +1,33 @@
 # Weza's Dotfiles 🎨
 
-Personal system customizations for Linux (Ubuntu/Debian-based with Niri compositor).
+Personal system customizations for Linux (CachyOS, Arch-based, Niri compositor).
 
 ## What's Included
 
 ### 🖥️ Terminal
-- **Alacritty** - GPU-accelerated terminal with custom "Dank" theme
-- **Starship** - Cross-shell prompt with Nord-inspired styling
-- **Bash** - Customized `.bashrc` with useful aliases and functions
+- **Alacritty** - GPU-accelerated terminal with custom "Dank" theme (GeistMono Nerd Font)
+- **Fish** - Shell config on top of CachyOS's default fish setup
 
 ### 🪟 Window Manager
 - **Niri** - Scrollable-tiling Wayland compositor configuration
-- Custom keybindings and layout settings
+- Custom keybindings, layout, output, and blur settings (managed via DankMaterialShell)
 
 ### 🎨 Theming
-- **GTK 3/4** - Custom Material-style dark theme colors (generated with Matugen)
-- **DankMaterialShell** - Shell/panel customization settings
+- **GTK 3/4** - Material-You dark theme colors (generated with Matugen)
+- **DankMaterialShell** - Shell/panel settings, plugin config, clipboard history settings, Firefox styling
 - **Alacritty Dank Theme** - Dark purple/pink terminal colors
 
 ## Dependencies
 
 ```bash
-# Core tools
-sudo apt install alacritty starship zoxide fzf bat trash-cli fastfetch
+# Core tools (CachyOS/Arch)
+sudo pacman -S alacritty fish niri
 
 # Fonts (install GeistMono Nerd Font)
 # Download from: https://github.com/ryanoasis/nerd-fonts/releases
-
-# Optional
-sudo apt install pokemon-colorscripts  # Fun terminal greeting
 ```
+
+Note: this setup does not use Starship. The prompt comes from CachyOS's default fish configuration (`cachyos-fish-config`), sourced at the top of `fish/config.fish`.
 
 ## Installation
 
@@ -46,13 +44,10 @@ sudo apt install pokemon-colorscripts  # Fun terminal greeting
    cp alacritty/* ~/.config/alacritty/
    ```
 
-2. **Bash & Starship**
+2. **Fish**
    ```bash
-   mkdir -p ~/.local/share/mybash
-   cp bash/.bashrc ~/.local/share/mybash/
-   cp bash/starship.toml ~/.local/share/mybash/
-   ln -sf ~/.local/share/mybash/.bashrc ~/.bashrc
-   ln -sf ~/.local/share/mybash/starship.toml ~/.config/starship.toml
+   mkdir -p ~/.config/fish
+   cp fish/config.fish ~/.config/fish/
    ```
 
 3. **Niri** (if using Niri compositor)
@@ -68,7 +63,7 @@ sudo apt install pokemon-colorscripts  # Fun terminal greeting
    cp gtk-4.0/dank-colors.css ~/.config/gtk-4.0/
    ```
 
-5. **DankMaterialShell** (if using this GNOME/Niri extension)
+5. **DankMaterialShell**
    ```bash
    mkdir -p ~/.config/DankMaterialShell
    cp DankMaterialShell/* ~/.config/DankMaterialShell/
@@ -76,19 +71,15 @@ sudo apt install pokemon-colorscripts  # Fun terminal greeting
 
 ## Key Features
 
-### Bash Aliases
-- `cat` → `batcat` (syntax highlighted file viewer)
-- `rm` → `trash` (safe delete to trash)
-- `vim` → `nvim` (neovim)
-- `..`, `...`, `....` - Quick directory navigation
-- `lazyg "message"` - Git add, commit, and push in one command
-- `Ctrl+F` - Launch zoxide interactive search
+### Fish Config
+- Sources CachyOS's default fish config for prompt, completions, and greeting
+- `text` aliased to `gnome-text-editor`
 
 ### Color Scheme
-The "Dank" theme is a dark purple/pink aesthetic:
-- Background: `#161217`
-- Foreground: `#eae0e7`
-- Accent: `#e6b6f1` (pink/purple)
+The "Dank" theme is a dark purple aesthetic, Matugen-generated from the current wallpaper:
+- Background: `#151218`
+- Foreground: `#e8e0e8`
+- Accent (cursor/cyan): `#dabaf9`
 
 ## Structure
 
@@ -97,18 +88,19 @@ dotfiles/
 ├── alacritty/
 │   ├── alacritty.toml      # Main config
 │   └── dank-theme.toml     # Color theme
-├── bash/
-│   ├── .bashrc             # Shell config
-│   └── starship.toml       # Prompt config
+├── fish/
+│   └── config.fish         # Shell config
 ├── niri/
 │   ├── config.kdl          # Window manager config
-│   └── dms/                # Additional bindings
+│   └── dms/                # Outputs, layout, binds, colors, blur (DankMaterialShell-managed)
 ├── gtk-3.0/
 │   └── dank-colors.css     # GTK3 theme colors
 ├── gtk-4.0/
 │   └── dank-colors.css     # GTK4 theme colors
 ├── DankMaterialShell/
 │   ├── settings.json       # Panel/shell settings
+│   ├── clsettings.json     # Clipboard history settings
+│   ├── plugin_settings.json # Plugin toggles (KDE Connect, notepad, pomodoro, etc.)
 │   └── firefox.css         # Firefox styling
 ├── install.sh              # Auto-installer
 └── README.md

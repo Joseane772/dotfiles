@@ -1,0 +1,25 @@
+{
+  "dankKDEConnect": {
+    "enabled": true,
+    "selectedDeviceId": ""
+  },
+  "dankNotepadModule": {
+    "enabled": true
+  },
+  "dankPomodoroTimer": {
+    "enabled": false
+  },
+  "timer": {
+    "enabled": true,
+    "systemActionOnTimeout": "custom"
+  },
+  "timeManager": {
+    "enabled": true,
+    "lastMode": "stopwatch",
+    "displayMode": "time"
+  },
+  "calculator": {
+    "enabled": true,
+    "trigger": "="
+  }
+}
