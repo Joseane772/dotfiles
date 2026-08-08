@@ -8,9 +8,10 @@ Personal system customizations for Linux (CachyOS, Arch-based, Niri compositor).
 - **Alacritty** - GPU-accelerated terminal with custom "Dank" theme (GeistMono Nerd Font)
 - **Fish** - Shell config on top of CachyOS's default fish setup
 
-### 🪟 Window Manager
+### 🪟 Window Manager & Shell
 - **Niri** - Scrollable-tiling Wayland compositor configuration
-- Custom keybindings, layout, output, and blur settings (managed via DankMaterialShell)
+- **[DankMaterialShell](https://github.com/AvengeMedia/DankMaterialShell)** - the actual desktop shell (Quickshell-based) running on top of Niri: panel, notifications, control center, plugins. Installed and managed via **[DankLinux](https://github.com/dvkellerman/danklinux)**.
+- Custom keybindings, layout, output, and blur settings (all generated/managed by DankMaterialShell into `niri/dms/`)
 
 ### 🎨 Theming
 - **GTK 3/4** - Material-You dark theme colors (generated with Matugen)
@@ -22,6 +23,9 @@ Personal system customizations for Linux (CachyOS, Arch-based, Niri compositor).
 ```bash
 # Core tools (CachyOS/Arch)
 sudo pacman -S alacritty fish niri
+
+# DankMaterialShell (the actual panel/shell for niri) — install via DankLinux:
+# https://github.com/dvkellerman/danklinux
 
 # Fonts (install GeistMono Nerd Font)
 # Download from: https://github.com/ryanoasis/nerd-fonts/releases
