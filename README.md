@@ -24,8 +24,9 @@ Personal system customizations for Linux (CachyOS, Arch-based, Niri compositor).
 # Core tools (CachyOS/Arch)
 sudo pacman -S alacritty fish niri
 
-# DankMaterialShell (the actual panel/shell for niri) — install via DankLinux:
-# https://github.com/dvkellerman/danklinux
+# DankMaterialShell (the actual panel/shell for niri): install.sh handles this
+# automatically via DankLinux's official installer if `dms` isn't already found.
+# Manual install: https://github.com/dvkellerman/danklinux
 
 # Fonts (install GeistMono Nerd Font)
 # Download from: https://github.com/ryanoasis/nerd-fonts/releases

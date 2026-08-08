@@ -31,7 +31,19 @@ backup_and_link() {
     echo -e "${GREEN}✓ Linked $dest${NC}"
 }
 
+# DankLinux (installs DankMaterialShell, the actual niri panel/shell)
+echo "🐦 Checking for DankMaterialShell (via DankLinux)..."
+if command -v dms >/dev/null 2>&1; then
+    echo -e "${GREEN}✓ DankMaterialShell already installed (dms found)${NC}"
+else
+    echo "   Not found. Installing via https://install.danklinux.com ..."
+    echo "   This is DankLinux's official installer (AvengeMedia/DankMaterialShell)."
+    echo "   It refuses to run as root and verifies a SHA256 checksum before running."
+    curl -fsSL https://install.danklinux.com | sh
+fi
+
 # Alacritty
+echo ""
 echo "📺 Installing Alacritty config..."
 mkdir -p ~/.config/alacritty
 backup_and_link "$DOTFILES_DIR/alacritty/alacritty.toml" ~/.config/alacritty/alacritty.toml
