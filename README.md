@@ -8,9 +8,10 @@ Personal system customizations for Linux (CachyOS, Arch-based, Niri compositor).
 - **Alacritty** - GPU-accelerated terminal with custom "Dank" theme (GeistMono Nerd Font)
 - **Fish** - Shell config on top of CachyOS's default fish setup
 
-### 🪟 Window Manager & Shell
+### 🪟 Window Manager & Shell (the DankLinux ecosystem)
 - **Niri** - Scrollable-tiling Wayland compositor configuration
-- **[DankMaterialShell](https://github.com/AvengeMedia/DankMaterialShell)** - the actual desktop shell (Quickshell-based) running on top of Niri: panel, notifications, control center, plugins. Installed and managed via **[DankLinux](https://github.com/dvkellerman/danklinux)**.
+- **[DankMaterialShell](https://github.com/AvengeMedia/DankMaterialShell)** - the actual desktop shell (Quickshell-based) running on top of Niri: panel, notifications, control center, plugins. Installed and managed via **[DankLinux](https://github.com/dvkellerman/danklinux)**, whose official installer `install.sh` runs automatically (see Dependencies below).
+- **[DankSearch](https://github.com/AvengeMedia/danksearch)** - local file-search daemon, same AvengeMedia/Dank ecosystem as the shell. Indexes `$HOME` (excluding caches, VCS dirs, build output) for fast local search.
 - Custom keybindings, layout, output, and blur settings (all generated/managed by DankMaterialShell into `niri/dms/`)
 
 ### 🎨 Theming
@@ -81,10 +82,11 @@ Note: this setup does not use Starship. The prompt comes from CachyOS's default 
 - `text` aliased to `gnome-text-editor`
 
 ### Color Scheme
-The "Dank" theme is a dark purple aesthetic, Matugen-generated from the current wallpaper:
-- Background: `#151218`
-- Foreground: `#e8e0e8`
-- Accent (cursor/cyan): `#dabaf9`
+The "Dank" theme is Matugen-generated from the current wallpaper, so exact values drift whenever the wallpaper changes. Current values (as of the last sync):
+- Background: `#101418`
+- Foreground: `#e1e2e8`
+
+Re-run the sync (copy the live `~/.config/{alacritty,gtk-3.0,gtk-4.0,DankMaterialShell,niri/dms}` files over this repo) after changing wallpaper if you want the repo to reflect it.
 
 ## Structure
 
@@ -107,6 +109,8 @@ dotfiles/
 │   ├── clsettings.json     # Clipboard history settings
 │   ├── plugin_settings.json # Plugin toggles (KDE Connect, notepad, pomodoro, etc.)
 │   └── firefox.css         # Firefox styling
+├── danksearch/
+│   └── config.toml         # Local file-search daemon config
 ├── install.sh              # Auto-installer
 └── README.md
 ```

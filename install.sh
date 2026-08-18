@@ -87,6 +87,14 @@ if [ -d "$DOTFILES_DIR/DankMaterialShell" ]; then
     done
 fi
 
+# DankSearch (optional, another AvengeMedia/Dank-ecosystem tool: local file search daemon)
+if [ -d "$DOTFILES_DIR/danksearch" ]; then
+    echo ""
+    echo "🔍 Installing DankSearch config..."
+    mkdir -p ~/.config/danksearch
+    backup_and_link "$DOTFILES_DIR/danksearch/config.toml" ~/.config/danksearch/config.toml
+fi
+
 echo ""
 echo "✅ Dotfiles installation complete!"
 echo ""
